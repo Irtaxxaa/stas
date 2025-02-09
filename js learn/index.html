@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .registration-form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+
+    .registration-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .registration-form .form-group {
+      margin-bottom: 15px;
+    }
+
+    .registration-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .registration-form input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .registration-form button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .registration-form button:hover {
+      background-color: #45a049;
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+      color: #4CAF50;
+    }
+
+    .fullscreen-image {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .fullscreen-image img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .fullscreen-image.active {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <div class="registration-form">
+    <h2>Ви перейшли по рефералці на НаРк0Шоп стас лис куркогриз, будьласка пройдіть регістрацію щоб отримати подарунки</h2>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Enter your username">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter your password">
+    </div>
+    <button id="registerButton">Register</button>
+    <div class="message" id="message"></div>
+  </div>
+
+  <div class="fullscreen-image" id="fullscreenImage">
+    <img src="img/photo_2024-12-01_23-29-12 (2).jpg" alt="Registration Successful">
+  </div>
+
+  <script>
+    document.getElementById('registerButton').addEventListener('click', function() {
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      if (username === '' || email === '' || password === '') {
+        document.getElementById('message').textContent = 'Please fill in all fields.';
+        document.getElementById('message').style.color = 'red';
+      } else {
+        document.getElementById('message').textContent = 'Registration successful!';
+        document.getElementById('message').style.color = '#4CAF50';
+
+        // Show the fullscreen image
+        const fullscreenImage = document.getElementById('fullscreenImage');
+        fullscreenImage.classList.add('active');
+
+        // Close the image when clicked
+        fullscreenImage.addEventListener('click', function() {
+          fullscreenImage.classList.remove('active');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
